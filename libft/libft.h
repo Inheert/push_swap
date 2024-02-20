@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:41:51 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/02/19 13:41:19 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/02/20 12:57:23 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <limits.h>
+# include <stdio.h>
 
 typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
+	struct s_list	*previous;
 }	t_list;
 
 size_t	ft_strlen(const char *str);

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:28:35 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/02/19 13:46:04 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:25:37 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,17 @@
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
+	t_list	*item;
+	int		i;
 
 	argv++;
 	stack_a = check_args(argc, argv);
-	stack_a++;
+	item = stack_a;
+	i = ft_lstsize(stack_a);
+	while (i--)
+	{
+		printf("%d\n", item->content);
+		item = item->next;
+	}
 	return (0);
 }

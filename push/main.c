@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:28:35 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/02/27 17:46:11 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:46:48 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 	IMPORT FT_PRINTF
 	CHANGE ERROR PRINT
 	CHANGE INSTRUCTIONS PRINTS
+	EXPLOSION
 */
 
 void	test(t_list **stack_a)

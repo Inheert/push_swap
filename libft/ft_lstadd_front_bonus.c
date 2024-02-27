@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 15:30:13 by tclaereb          #+#    #+#             */
-/*   Updated: 2023/11/04 15:24:24 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:30:18 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,17 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
 		return ;
-	if (*lst)
-		new->next = *lst;
+	if (!*lst)
+	{
+		*lst = new;
+		(*lst)->next = new;
+		(*lst)->previous = new;
+		return ;
+	}
+	new->next = (*lst);
+	new->previous = (*lst)->previous;
+	(*lst)->previous->next = new;
+	(*lst)->previous = new;
 	*lst = new;
+	
 }

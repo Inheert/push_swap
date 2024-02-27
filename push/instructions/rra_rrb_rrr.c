@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   rra_rrb_rrr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:27:59 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/02/27 14:41:47 by tclaereb         ###   ########.fr       */
+/*   Created: 2024/02/27 17:38:39 by tclaereb          #+#    #+#             */
+/*   Updated: 2024/02/27 17:43:05 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-t_list	*ft_lstnew(int content)
+void	rrotate(t_list **stack)
 {
-	t_list	*item;
+	*stack = (*stack)->previous;
+}
 
-	item = ft_calloc(1, sizeof(t_list));
-	if (!item)
-		return (NULL);
-	item->content = content;
-	item->next = item;
-	item->previous = item;
-	return (item);
+void	rra(t_list **stack_a)
+{
+	rrotate(stack_a);
+	write(1, "rra\n", 4);
+}
+
+void	rrb(t_list **stack_b)
+{
+	rrotate(stack_b);
+	write(1, "rrb\n", 4);
+}
+
+void	rrr(t_list **stack_a, t_list **stack_b)
+{
+	rrotate(stack_a);
+	rrotate(stack_b);
+	write(1, "rrr\n", 4);
 }

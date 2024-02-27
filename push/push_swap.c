@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:14:46 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/02/20 15:25:00 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:37:56 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,13 @@ void	empty_stack(t_list **stack)
 {
 	t_list	*item;
 	t_list	*next;
+	size_t	stack_size;
 
 	if (!stack)
 		return ;
 	item = *stack;
-	while (item)
+	stack_size = ft_lstsize(*stack);
+	while (stack_size--)
 	{
 		next = item->next;
 		free(item);
@@ -45,7 +47,6 @@ void	empty_stack(t_list **stack)
 	*stack = NULL;
 }
 
-// IMPORT AND USE PERSONAL PRINTF FUNC
 void	exception(t_list **stack_a, t_list **stack_b)
 {
 	empty_stack(stack_a);
@@ -59,7 +60,7 @@ t_list	*check_args(int argc, char **argv)
 	t_list	*stack_a;
 	t_list	*to_check;
 	t_list	*checker;
-	int		stack_size;
+	size_t	stack_size;
 
 
 	if (argc <= 1)
@@ -71,7 +72,7 @@ t_list	*check_args(int argc, char **argv)
 	while (argc--)
 	{
 		checker = stack_a;
-		stack_size = argc;
+		stack_size = ft_lstsize(stack_a);
 		while (stack_size--)
 		{
 			if (checker->content == to_check->content && checker != to_check)

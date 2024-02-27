@@ -6,19 +6,19 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:23:17 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/02/19 13:39:04 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:25:19 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int))
+t_list	*ft_lstmap(t_list *lst, int (*f)(int))
 {
 	t_list	*new_list;
 	t_list	*item;
 	int		new_content;
 
-	if (!lst || !f || !del)
+	if (!lst || !f)
 		return (NULL);
 	new_list = NULL;
 	while (lst)
@@ -27,8 +27,7 @@ t_list	*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int))
 		item = ft_lstnew(new_content);
 		if (!item)
 		{
-			del(new_content);
-			ft_lstclear(&new_list, del);
+			ft_lstclear(&new_list);
 			return (NULL);
 		}
 		ft_lstadd_back(&new_list, item);

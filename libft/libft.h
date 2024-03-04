@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:41:51 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/02/27 16:25:03 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:28:59 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_list
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcat(char *dst, const char *src, size_t dst_size);
 size_t	ft_strlcpy(char *dest, const char *src, size_t n);
-int		ft_atoi(const char *str);
+int		ft_atoi(const char *nptr, t_list **stack_a);
 int		ft_isalpha(int c);
 int		ft_isascii(int n);
 int		ft_isdigit(int c);

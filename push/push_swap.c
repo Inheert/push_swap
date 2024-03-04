@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:14:46 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/02/27 15:37:56 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:28:39 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ t_list	**fill_stack(char **argv, t_list **stack)
 	t_list	*item;
 	while (*argv)
 	{
-		n = ft_atoi(*argv);
-		if (n < 0)
-			exception(stack, NULL);
+		n = ft_atoi(*argv, stack);
 		item = ft_lstnew(n);
 		ft_lstadd_back(stack, item);
 		argv++;

@@ -6,13 +6,14 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 20:04:14 by Theo              #+#    #+#             */
-/*   Updated: 2024/02/19 13:41:27 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:29:48 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "../includes/push_swap.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr, t_list **stack_a)
 {
 	int	result;
 	int	sign;
@@ -31,9 +32,10 @@ int	ft_atoi(const char *nptr)
 	while (*nptr)
 	{
 		if (!(*nptr >= '0' && *nptr <= '9'))
-			return (-1);
-		if ((long long)result * 10 + (*nptr - '0') > INT_MAX)
-			return (-1);
+			exception(stack_a, NULL);
+		if ((long long)result * 10 + (*nptr - '0') > INT_MAX ||
+			(long long)result * 10 + (*nptr - '0') < INT_MIN)
+			exception(stack_a, NULL);
 		result = result * 10 + (*nptr - '0');
 		nptr++;
 	}

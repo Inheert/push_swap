@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 05:00:36 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/04 14:21:08 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/04 15:55:03 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ void	rr(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
+
+void	sorting(t_list **stack_a, t_list **stack_b);
 #endif

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:28:35 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/04 15:02:47 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:18:01 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,12 @@ void	test(t_list **stack_a)
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
+	t_list	*stack_b;
 
 	argv++;
 	stack_a = check_args(argc, argv);
-	test(&stack_a);
+	stack_b = NULL;
+	sorting(&stack_a, &stack_b);
+	//test(&stack_a);
 	return (0);
 }

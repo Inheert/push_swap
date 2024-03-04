@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:42:59 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/02/27 17:33:56 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:20:55 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	pa(t_list **src, t_list **dst)
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_list **dst, t_list **src)
+void	pb(t_list **src, t_list **dst)
 {
 	push(src, dst);
 	write(1, "pb\n", 3);

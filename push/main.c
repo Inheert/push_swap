@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:28:35 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/02/27 17:46:48 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:21:46 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	test(t_list **stack_a)
 
 	stack_b = ft_lstnew(5);
 	ft_lstadd_back(&stack_b, ft_lstnew(10));
-	rrr(&stack_b, stack_a);
+	sb(stack_a);
 	size = ft_lstsize(*stack_a);
 	item = *stack_a;
 	printf("\nSTACK A:\n");

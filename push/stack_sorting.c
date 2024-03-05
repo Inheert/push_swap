@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:07:15 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/05 16:57:23 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:57:58 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,7 @@ void	sorting(t_list **stack_a, t_list **stack_b)
 			}
 			pb(stack_a, stack_b);
 			while (rotation--)
-			{
 				rb(stack_b);
-			}
 			rb(stack_b);
 		}
 	}

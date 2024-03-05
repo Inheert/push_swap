@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:28:35 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/04 16:18:01 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:00:38 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,12 @@ int	main(int argc, char **argv)
 	argv++;
 	stack_a = check_args(argc, argv);
 	stack_b = NULL;
-	sorting(&stack_a, &stack_b);
-	//test(&stack_a);
+
+	while (!is_sorted(&stack_a))
+	{
+		sorting(&stack_a, &stack_b);
+		reverse_sorting(&stack_a, &stack_b);
+	}
+	//display_stacks(&stack_a, &stack_b);
 	return (0);
 }

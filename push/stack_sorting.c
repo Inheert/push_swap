@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:07:15 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/04 17:44:16 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:57:23 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ int	is_sorted(t_list **stack)
 
 void	sorting(t_list **stack_a, t_list **stack_b)
 {
-	printf("Is sorted: %d\n", is_sorted(stack_a));
+	int	rotation;
+
 	while (*stack_a)
 	{
 		if (!(*stack_b))
@@ -70,10 +71,41 @@ void	sorting(t_list **stack_a, t_list **stack_b)
 		}
 		else if ((*stack_b)->content > (*stack_a)->content && (*stack_b)->previous->content < (*stack_a)->content)
 		{
-			rrb(stack_b);
+			rotation = 0;
+			while ((*stack_b)->previous->content < (*stack_a)->content)
+			{
+				rrb(stack_b);
+				rotation++;
+			}
 			pb(stack_a, stack_b);
+			while (rotation--)
+			{
+				rb(stack_b);
+			}
 			rb(stack_b);
 		}
 	}
-	display_stacks(stack_a, stack_b);
+}
+
+void	reverse_sorting(t_list **stack_a, t_list **stack_b)
+{
+	while (*stack_b)
+	{
+		if (!(*stack_a))
+			pa(stack_b, stack_a);
+		else if ((*stack_a)->content > (*stack_b)->content)
+			pa(stack_b, stack_a);
+		else if ((*stack_b)->content > (*stack_a)->content && (*stack_b)->content > (*stack_a)->previous->content)
+		{
+			pa(stack_b, stack_a);
+			ra(stack_a);
+		}
+		else if ((*stack_b)->content > (*stack_a)->content && (*stack_b)->content < (*stack_a)->previous->content)
+		{
+			rra(stack_a);
+			pa(stack_b, stack_a);
+			ra(stack_a);
+			ra(stack_a);
+		}
+	}
 }

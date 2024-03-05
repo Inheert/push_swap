@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:07:15 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/05 16:57:58 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/05 17:55:11 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,10 @@ void	reverse_sorting(t_list **stack_a, t_list **stack_b)
 			ra(stack_a);
 		}
 	}
+}
+
+void	rotate_until(t_list **stack, int rotation)
+{
+	while (rotation--)
+		ra(stack);
 }

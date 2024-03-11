@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 17:28:35 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/11 16:40:30 by tclaereb         ###   ########.fr       */
+/*   Created: 2024/03/11 16:29:11 by tclaereb          #+#    #+#             */
+/*   Updated: 2024/03/11 16:43:28 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-/*
-	IMPORT FT_PRINTF
-	CHANGE ERROR PRINT
-	CHANGE INSTRUCTIONS PRINTS
-	EXPLOSION
-*/
 
-int	main(int argc, char **argv)
+int	is_index_set(t_list *stack)
 {
-	t_list	*stack_a;
-	//t_list	*stack_b;
-
-	argv++;
-	stack_a = check_args(argc, argv);
-	set_index(stack_a);
-	/*
-	stack_b = NULL;
-	while (!is_sorted(&stack_a) && !stack_b)
+	size_t	size;
+	size = ft_lstsize(stack);
+	while (size --)
 	{
-		sorting(&stack_a, &stack_b);
-		reverse_sorting(&stack_a, &stack_b);
+		if (!stack->index)
+			return (0);
+		stack = stack->next;
 	}
-	*/
-	return (0);
+	return (1);
+}
+
+void	set_index(t_list *stack)
+{
+	size_t	size;
+	t_list	*buff;
+	t_list	*lower;
+
+	size = ft_lstsize(stack);
+	buff = stack;
+	while (size--)
+	{
+		buff->index = 1;
+		buff = buff->next;
+	}
+	printf("%d\n", is_index_set(stack));
 }

@@ -6,7 +6,7 @@
 #    By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/25 04:39:44 by tclaereb          #+#    #+#              #
-#    Updated: 2024/03/04 15:55:33 by tclaereb         ###   ########.fr        #
+#    Updated: 2024/03/11 16:31:03 by tclaereb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ _SRCS_C = main.c
 
 _SRCS_P = push_swap.c \
 			main.c \
-			stack_sorting.c
+			stack_sorting.c \
+			sorting.c
 
 _SRCS_I = sa_sb_ss.c \
 			pa_pb.c \

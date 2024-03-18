@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:07:15 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/05 17:55:11 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:07:15 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ void	display_stacks(t_list **stack_a, t_list **stack_b)
 	printf("\n\nSTACK A:\n");
 	while (size--)
 	{
-		printf("%d\n", stack->content);
+		printf("%d, %d\n", stack->content, stack->index);
 		stack = stack->next;
 	}
+	if (!stack_b)
+		return ;
 	stack = *stack_b;
 	size = ft_lstsize(*stack_b);
 	printf("\nSTACK B:\n");
@@ -54,6 +56,67 @@ int	is_sorted(t_list **stack)
 	return (1);
 }
 
+
+int	get_max_bits(t_list **stack)
+{
+	t_list	*head;
+	int		max;
+	int		max_bits;
+	size_t	size;
+
+	head = *stack;
+	max = head->index;
+	max_bits = 0;
+	size = ft_lstsize(*stack);
+	while (size--)
+	{
+		if (head->index > max)
+			max = head->index;
+		head = head->next;
+	}
+	while ((max >> max_bits) != 0)
+		max_bits++;
+	return (max_bits);
+}
+
+void	radix_sorting(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*head_a;
+	int		i;
+	int		j;
+	int		size;
+	int		max_bits;
+
+	i = 0;
+	head_a = *stack_a;
+	size = ft_lstsize(head_a);
+	max_bits = get_max_bits(stack_a);
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j++ < size)
+		{
+			head_a = *stack_a;
+			if (((head_a->index >> i) & 1) == 1)
+				ra(stack_a);
+			else
+				pb(stack_a, stack_b);
+		}
+		while (ft_lstsize(*stack_b) != 0)
+			pa(stack_b, stack_a);
+		i++;
+	}
+}
+
+void	sort_stack(t_list **stack_a, t_list **stack_b)
+{
+	if (ft_lstsize(*stack_a) <= 5)
+		printf("Manage this");
+	else
+		radix_sorting(stack_a, stack_b);
+}
+
+/*
 void	sorting(t_list **stack_a, t_list **stack_b)
 {
 	int	rotation;
@@ -93,18 +156,6 @@ void	reverse_sorting(t_list **stack_a, t_list **stack_b)
 			pa(stack_b, stack_a);
 		else if ((*stack_a)->content > (*stack_b)->content)
 			pa(stack_b, stack_a);
-		else if ((*stack_b)->content > (*stack_a)->content && (*stack_b)->content > (*stack_a)->previous->content)
-		{
-			pa(stack_b, stack_a);
-			ra(stack_a);
-		}
-		else if ((*stack_b)->content > (*stack_a)->content && (*stack_b)->content < (*stack_a)->previous->content)
-		{
-			rra(stack_a);
-			pa(stack_b, stack_a);
-			ra(stack_a);
-			ra(stack_a);
-		}
 	}
 }
 
@@ -113,3 +164,4 @@ void	rotate_until(t_list **stack, int rotation)
 	while (rotation--)
 		ra(stack);
 }
+*/

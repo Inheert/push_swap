@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 05:00:36 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/11 16:30:44 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/18 15:50:48 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
 
 int		is_sorted(t_list **stack);
-void	set_index(t_list *stack);
+void	empty_stack(t_list **stack);
+void	set_index(t_list **stack);
+void	sort_stack(t_list **stack_a, t_list **stack_b);
 void	sorting(t_list **stack_a, t_list **stack_b);
 void	reverse_sorting(t_list **stack_a, t_list **stack_b);
 void	display_stacks(t_list **stack_a, t_list **stack_b);

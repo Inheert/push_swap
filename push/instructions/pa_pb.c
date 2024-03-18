@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:42:59 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/05 14:19:34 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:07:10 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	push(t_list **src, t_list **dst)
 	if (src_size < 1)
 		return ;
 	header = ft_lstnew((*src)->content);
+	header->index = (*src)->index;
 	ft_lstadd_front(dst, header);
 	if (src_size == 1)
 		return (*src = NULL, free(*src));

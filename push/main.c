@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:28:35 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/18 17:07:15 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/21 09:09:02 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,6 @@ int	main(int argc, char **argv)
 	stack_a = check_args(argc, argv);
 	stack_b = NULL;
 	set_index(&stack_a);
-	display_stacks(&stack_a, &stack_b);
 	sort_stack(&stack_a, &stack_b);
-	display_stacks(&stack_a, &stack_b);
-	/*
-	while (!is_sorted(&stack_a) && !stack_b)
-	{
-		sorting(&stack_a, &stack_b);
-		reverse_sorting(&stack_a, &stack_b);
-	}
-	*/
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:07:15 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/18 17:07:15 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/21 08:47:04 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int	is_sorted(t_list **stack)
 	}
 	return (1);
 }
-
 
 int	get_max_bits(t_list **stack)
 {
@@ -110,58 +109,18 @@ void	radix_sorting(t_list **stack_a, t_list **stack_b)
 
 void	sort_stack(t_list **stack_a, t_list **stack_b)
 {
-	if (ft_lstsize(*stack_a) <= 5)
-		printf("Manage this");
+	size_t	size;
+
+	size = ft_lstsize(*stack_a);
+	if (size == 2)
+	{
+		if ((*stack_a)->content > (*stack_a)->next->content)
+			ra(stack_a);
+	}
+	else if (size == 3)
+		stack_3(stack_a);
+	else if (size == 5)
+		stack_5(stack_a, stack_b);
 	else
 		radix_sorting(stack_a, stack_b);
 }
-
-/*
-void	sorting(t_list **stack_a, t_list **stack_b)
-{
-	int	rotation;
-
-	while (*stack_a)
-	{
-		if (!(*stack_b))
-			pb(stack_a, stack_b);
-		else if ((*stack_a)->content > (*stack_b)->content)
-			pb(stack_a, stack_b);
-		else if ((*stack_b)->content > (*stack_a)->content && (*stack_b)->previous->content > (*stack_a)->content)
-		{
-			pb(stack_a, stack_b);
-			rb(stack_b);
-		}
-		else if ((*stack_b)->content > (*stack_a)->content && (*stack_b)->previous->content < (*stack_a)->content)
-		{
-			rotation = 0;
-			while ((*stack_b)->previous->content < (*stack_a)->content)
-			{
-				rrb(stack_b);
-				rotation++;
-			}
-			pb(stack_a, stack_b);
-			while (rotation--)
-				rb(stack_b);
-			rb(stack_b);
-		}
-	}
-}
-
-void	reverse_sorting(t_list **stack_a, t_list **stack_b)
-{
-	while (*stack_b)
-	{
-		if (!(*stack_a))
-			pa(stack_b, stack_a);
-		else if ((*stack_a)->content > (*stack_b)->content)
-			pa(stack_b, stack_a);
-	}
-}
-
-void	rotate_until(t_list **stack, int rotation)
-{
-	while (rotation--)
-		ra(stack);
-}
-*/

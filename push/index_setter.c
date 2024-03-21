@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   index_setter.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:29:11 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/18 15:43:10 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/21 06:35:01 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,11 @@ int	is_buff_sorted(t_list *stack)
 
 void	swap_node(t_list *a, t_list *b)
 {
-    int	temp_content;
+	int	temp_content;
 
 	temp_content = a->content;
-    a->content = b->content;
-    b->content = temp_content;
-}
-
-int	nb_cmp(int a, int b)
-{
-	if (a > b)
-		return (-1);
-	else if (b > a)
-		return (1);
-	return (0);
+	a->content = b->content;
+	b->content = temp_content;
 }
 
 void	bubble_list(t_list **list)
@@ -58,7 +49,7 @@ void	bubble_list(t_list **list)
 		while (tmp != *list || start == 0)
 		{
 			start = 1;
-			if (nb_cmp(tmp->content, tmp->next->content) == -1)
+			if (tmp->content > tmp->next->content)
 				swap_node(tmp, tmp->next);
 			tmp = tmp->next;
 		}
@@ -90,10 +81,10 @@ void	set_stack_index(t_list **stack, t_list **buffer)
 
 void	set_index(t_list **stack)
 {
-	t_list	*buffer;
-	t_list	*node_buffer;
-	size_t	size;
-	unsigned int idx;
+	t_list			*buffer;
+	t_list			*node_buffer;
+	size_t			size;
+	unsigned int	idx;
 
 	buffer = NULL;
 	node_buffer = *stack;

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 20:04:14 by Theo              #+#    #+#             */
-/*   Updated: 2024/03/13 14:00:38 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/21 06:37:14 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	ft_atoi(const char *nptr, t_list **stack_a)
 	{
 		if (!(*nptr >= '0' && *nptr <= '9'))
 			exception(stack_a, NULL);
-		if ((long long)result * 10 + (*nptr - '0') > INT_MAX ||
-			(long long)result * 10 + (*nptr - '0') < INT_MIN)
+		if ((long long)result * 10 + (*nptr - '0') > INT_MAX
+			|| (long long)result * 10 + (*nptr - '0') < INT_MIN)
 			exception(stack_a, NULL);
 		result = result * 10 + (*nptr - '0');
 		nptr++;

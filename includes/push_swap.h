@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 05:00:36 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/21 07:54:50 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/21 09:31:58 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include <limits.h>
+# include <stdlib.h>
 # include "../libft/libft.h"
 
 void	exception(t_list **stack_a, t_list **stack_b);

@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra_rb_rr.c                                         :+:      :+:    :+:   */
+/*   arg_x.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 17:34:39 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/25 13:55:51 by tclaereb         ###   ########.fr       */
+/*   Created: 2023/12/01 14:43:12 by tclaereb          #+#    #+#             */
+/*   Updated: 2024/03/25 13:43:52 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../libft.h"
 
-void	rotate(t_list **stack)
+int	arg_x(va_list args, int upper)
 {
-	*stack = (*stack)->next;
-}
+	unsigned int	n;
+	int				len;
+	char			*s;
 
-void	ra(t_list **stack_a)
-{
-	rotate(stack_a);
-	ft_printf("ra\n");
-}
-
-void	rb(t_list **stack_b)
-{
-	rotate(stack_b);
-	ft_printf("rb\n");
-}
-
-void	rr(t_list **stack_a, t_list **stack_b)
-{
-	rotate(stack_a);
-	rotate(stack_b);
-	ft_printf("rr\n");
+	n = va_arg(args, unsigned int);
+	s = ft_putnbr_base16(n);
+	if (!s)
+		return (-1);
+	len = 0;
+	while (*s)
+	{
+		if ((!upper && ft_putchar_fd(*s, 1) == -1)
+			|| (upper && ft_putchar_fd(ft_toupper(*s), 1) == -1))
+		{
+			free(s - len);
+			return (-1);
+		}
+		s++;
+		len++;
+	}
+	free(s - len);
+	return (len);
 }

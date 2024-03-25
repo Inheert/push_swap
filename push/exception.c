@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 06:44:12 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/21 07:40:19 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:50:04 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	exception(t_list **stack_a, t_list **stack_b)
 {
 	empty_stack(stack_a);
 	empty_stack(stack_b);
-	printf("Error\n");
+	ft_printf("Error\n");
 	exit(1);
 }
 

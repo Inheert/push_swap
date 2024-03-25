@@ -1,6 +1,6 @@
 NAME = libft.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 
 SOURCES = ft_atoi.c \
 		ft_bzero.c \
@@ -16,6 +16,8 @@ SOURCES = ft_atoi.c \
 		ft_memcpy.c \
 		ft_memmove.c \
 		ft_memset.c \
+		ft_putaddress_base16.c \
+		ft_putnbr_base16.c \
 		ft_putchar_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
@@ -44,7 +46,16 @@ SOURCES = ft_atoi.c \
 		ft_lstlast_bonus.c \
 		ft_lstmap_bonus.c \
 		ft_lstnew_bonus.c \
-		ft_lstsize_bonus.c
+		ft_lstsize_bonus.c \
+		ft_uitoa.c \
+		printf/ft_printf.c \
+		printf/args/arg_c.c \
+		printf/args/arg_d.c\
+		printf/args/arg_p.c \
+		printf/args/arg_percent.c \
+		printf/args/arg_s.c \
+		printf/args/arg_u.c \
+		printf/args/arg_x.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 

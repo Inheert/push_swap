@@ -6,36 +6,11 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:07:15 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/21 08:47:04 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:55:04 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	display_stacks(t_list **stack_a, t_list **stack_b)
-{
-	t_list	*stack;
-	size_t	size;
-
-	stack = *stack_a;
-	size = ft_lstsize(*stack_a);
-	printf("\n\nSTACK A:\n");
-	while (size--)
-	{
-		printf("%d, %d\n", stack->content, stack->index);
-		stack = stack->next;
-	}
-	if (!stack_b)
-		return ;
-	stack = *stack_b;
-	size = ft_lstsize(*stack_b);
-	printf("\nSTACK B:\n");
-	while (size--)
-	{
-		printf("%d\n", stack->content);
-		stack = stack->next;
-	}
-}
 
 int	is_sorted(t_list **stack)
 {

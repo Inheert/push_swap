@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 06:36:34 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/21 06:36:36 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:56:18 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,18 @@ void	swap(t_list **stack)
 void	sa(t_list **stack_a)
 {
 	swap(stack_a);
-	write(1, "sa\n", 3);
+	ft_printf("sa\n");
 }
 
 void	sb(t_list **stack_b)
 {
 	swap(stack_b);
-	write(1, "sb\n", 3);
+	ft_printf("sb\n");
 }
 
 void	ss(t_list **stack_a, t_list **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
-	write(1, "ss\n", 3);
+	ft_printf("ss\n");
 }

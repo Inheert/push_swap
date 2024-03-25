@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:41:51 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/11 16:31:52 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:53:12 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <stddef.h>
 # include <limits.h>
 # include <stdio.h>
+# include <stdarg.h>
+# include <stdint.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -42,6 +45,7 @@ int		ft_isprint(int c);
 char	**ft_split(char const *s, char c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_itoa(int n);
+char	*ft_uitoa(unsigned int n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -50,7 +54,9 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t maxsize);
-void	ft_putchar_fd(char c, int fd);
+char	*ft_putaddress_base16(unsigned long long n);
+char	*ft_putnbr_base16(unsigned int n);
+int		ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *d, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
@@ -71,4 +77,14 @@ size_t	ft_lstsize(t_list *lst);
 t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, int (*f)(int));
+
+int		arg_c(va_list args);
+int		arg_s(va_list args);
+int		arg_d(va_list args);
+int		arg_u(va_list args);
+int		arg_p(va_list args);
+int		arg_x(va_list args, int upper);
+int		arg_percent(void);
+int		ft_printf(const char *format, ...);
+
 #endif

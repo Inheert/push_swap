@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:41:51 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/25 13:53:12 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:34:05 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <limits.h>
-# include <stdio.h>
 # include <stdarg.h>
 # include <stdint.h>
 # include <limits.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 typedef struct s_list
 {
@@ -86,5 +89,7 @@ int		arg_p(va_list args);
 int		arg_x(va_list args, int upper);
 int		arg_percent(void);
 int		ft_printf(const char *format, ...);
+
+char	*get_next_line(int fd);
 
 #endif

@@ -56,6 +56,7 @@ SOURCES = ft_atoi.c \
 		printf/args/arg_s.c \
 		printf/args/arg_u.c \
 		printf/args/arg_x.c \
+		get_next_line.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 

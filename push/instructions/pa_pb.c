@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:42:59 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/25 13:55:38 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:19:06 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	push(t_list **src, t_list **dst)
 	if (!header)
 		return (exception(src, dst));
 	header->index = (*src)->index;
+	header->final = (*src)->final;
 	ft_lstadd_front(dst, header);
 	if (src_size == 1)
 		return (free(*src), *src = NULL, free(*src));
@@ -33,11 +34,13 @@ void	push(t_list **src, t_list **dst)
 	header = header->next;
 	free(*src);
 	*src = header;
+	set_index(src);
+	set_index(dst);
 }
 
 void	pa(t_list **src, t_list **dst)
 {
-	push(src, dst);
+	push(dst, src);
 	ft_printf("pa\n");
 }
 

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:07:15 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/25 13:55:04 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:19:31 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ void	sort_stack(t_list **stack_a, t_list **stack_b)
 {
 	size_t	size;
 
+	if (is_sorted(stack_a))
+		return ;
 	size = ft_lstsize(*stack_a);
 	if (size == 2)
 	{
@@ -97,5 +99,26 @@ void	sort_stack(t_list **stack_a, t_list **stack_b)
 	else if (size == 5)
 		stack_5(stack_a, stack_b);
 	else
-		radix_sorting(stack_a, stack_b);
+	{
+		set_final(*stack_a);
+		set_group(*stack_a);
+
+		// size_t	size;
+		// t_list	*tmp;
+		// size = ft_lstsize(*stack_a);
+		// tmp = *stack_a;
+		// while (size--)
+		// {
+		// 	printf("%d %d %d\n", tmp->content, tmp->final, tmp->index);
+		// 	tmp = tmp->next;
+		// }
+		// return ;
+
+		sort(stack_a, stack_b);
+		stack_3(stack_a);
+		sort_back(stack_a, stack_b);
+		if (is_sorted(stack_a))
+			return ;
+	}
+	//radix_sorting(stack_a, stack_b);
 }

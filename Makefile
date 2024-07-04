@@ -6,7 +6,7 @@
 #    By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/25 04:39:44 by tclaereb          #+#    #+#              #
-#    Updated: 2024/03/21 09:33:35 by tclaereb         ###   ########.fr        #
+#    Updated: 2024/07/04 18:17:26 by tclaereb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ _SRCS_P = exception.c \
 			main.c \
 			stack_sorting.c \
 			index_setter.c \
-			short_stack.c
+			short_stack.c \
+			sorting.c \
 
 _SRCS_I = sa_sb_ss.c \
 			pa_pb.c \
@@ -50,12 +51,12 @@ $(NAME_P) : $(SRCO_P) $(SRCO_I) | $(LIBFT)
 	gcc $(FLAG) -c $< -o $@ $(INC)
 
 clean :
-	/bin/rm -f $(SRCO_P)
-	/bin/rm -f $(SRCO_I)
+	rm -f $(SRCO_P)
+	rm -f $(SRCO_I)
 	$(MAKE_LIBFT) clean
 
 fclean : clean
-	/bin/rm -f $(NAME_P)
+	rm -f $(NAME_P)
 	$(MAKE_LIBFT) fclean
 
 re :

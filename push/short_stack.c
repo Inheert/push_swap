@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 06:41:52 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/21 09:09:02 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:10:28 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,25 @@ unsigned int	get_distance(t_list **stack, int idx)
 
 void	stack_3(t_list **stack)
 {
-	if ((*stack)->content < (*stack)->next->content
-		&& (*stack)->content < (*stack)->previous->content)
+	if ((*stack) == find_min(*stack))
 	{
 		if ((*stack)->next->content > (*stack)->previous->content)
-		{
+			sa((rra(stack), stack));
+	}
+	else if ((*stack)->next == find_min(*stack))
+	{
+		if ((*stack)->content < (*stack)->previous->content)
+			sa(stack);
+		else
 			ra(stack);
-			sa(stack);
+	}
+	else
+	{
+		if ((*stack)->content < (*stack)->next->content)
 			rra(stack);
-		}
+		else
+			rra((sa(stack), stack));
 	}
-	else if ((*stack)->content > (*stack)->next->content
-		&& (*stack)->content > (*stack)->previous->content)
-	{
-		ra(stack);
-		if ((*stack)->content > (*stack)->next->content)
-			sa(stack);
-	}
-	else if ((*stack)->content > (*stack)->next->content
-		&& (*stack)->content < (*stack)->previous->content)
-	{
-		sa(stack);
-	}
-	else if ((*stack)->content < (*stack)->next->content
-		&& (*stack)->content > (*stack)->previous->content)
-		rra(stack);
 }
 
 void	stack_5(t_list **stack_a, t_list **stack_b)

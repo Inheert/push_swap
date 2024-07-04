@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 05:00:36 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/21 09:31:58 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/07/04 16:57:24 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,14 @@ void	set_index(t_list **stack);
 void	stack_3(t_list **stack);
 void	stack_5(t_list **stack_a, t_list **stack_b);
 void	sort_stack(t_list **stack_a, t_list **stack_b);
-void	sorting(t_list **stack_a, t_list **stack_b);
-void	reverse_sorting(t_list **stack_a, t_list **stack_b);
 void	display_stacks(t_list **stack_a, t_list **stack_b);
 void	rotate_until(t_list **stack, int rotation);
+
+void	set_final(t_list *stack);
+void	set_group(t_list *stack);
+void	set_group_2(t_list *stack, t_list *tmp, size_t *j);
+t_list	*find_min(t_list *stack);
+void	sort_back(t_list **a_head, t_list **b_head);
+void	sort(t_list **a_head, t_list **b_head);
+
 #endif

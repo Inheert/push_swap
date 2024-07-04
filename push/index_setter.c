@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:29:11 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/21 06:35:01 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/07/04 18:15:57 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,29 +81,42 @@ void	set_stack_index(t_list **stack, t_list **buffer)
 
 void	set_index(t_list **stack)
 {
-	t_list			*buffer;
-	t_list			*node_buffer;
-	size_t			size;
-	unsigned int	idx;
+	t_list	*tmp;
+	size_t	size;
+	int		i;
 
-	buffer = NULL;
-	node_buffer = *stack;
-	size = ft_lstsize(*stack);
+	tmp = *stack;
+	i = 1;
+	size = ft_lstsize(tmp);
 	while (size--)
 	{
-		ft_lstadd_back(&buffer, ft_lstnew(node_buffer->content));
-		node_buffer = node_buffer->next;
+		tmp->index = i++;
+		tmp = tmp->next;
 	}
-	while (!is_buff_sorted(buffer))
-		bubble_list(&buffer);
-	size = ft_lstsize(buffer);
-	idx = 0;
-	while (size--)
-	{
-		buffer->index = idx;
-		buffer = buffer->next;
-		idx++;
-	}
-	set_stack_index(stack, &buffer);
-	empty_stack(&buffer);
+	return ;
+	// t_list			*buffer;
+	// t_list			*node_buffer;
+	// size_t			size;
+	// unsigned int	idx;
+
+	// buffer = NULL;
+	// node_buffer = *stack;
+	// size = ft_lstsize(*stack);
+	// while (size--)
+	// {
+	// 	ft_lstadd_back(&buffer, ft_lstnew(node_buffer->content));
+	// 	node_buffer = node_buffer->next;
+	// }
+	// while (!is_buff_sorted(buffer))
+	// 	bubble_list(&buffer);
+	// size = ft_lstsize(buffer);
+	// idx = 0;
+	// while (size--)
+	// {
+	// 	buffer->index = idx;
+	// 	buffer = buffer->next;
+	// 	idx++;
+	// }
+	// set_stack_index(stack, &buffer);
+	// empty_stack(&buffer);
 }

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:41:51 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/03/25 14:34:05 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/07/04 16:59:03 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct s_list
 {
 	int				content;
 	int				index;
+	int				final;
+	int				group;
 	struct s_list	*next;
 	struct s_list	*previous;
 }	t_list;

@@ -6,11 +6,11 @@
 #    By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/25 04:39:44 by tclaereb          #+#    #+#              #
-#    Updated: 2024/07/04 18:17:26 by tclaereb         ###   ########.fr        #
+#    Updated: 2024/07/05 16:17:59 by tclaereb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME_P = push_swap
+NAME = push_swap
 
 _SRCS_P = exception.c \
 			main.c \
@@ -39,13 +39,13 @@ LIBFT = ./libft/libft.a
 FLAG = -g -Wall -Wextra -Werror
 INC = -I includes/
 
-all : $(NAME_C) $(NAME_P)
+all : $(NAME)
 
 $(LIBFT):
 	$(MAKE_LIBFT)
 
-$(NAME_P) : $(SRCO_P) $(SRCO_I) | $(LIBFT)
-	gcc -o $(NAME_P) $(SRCO_P) $(SRCO_I) $(LIBFT)
+$(NAME) : $(SRCO_P) $(SRCO_I) | $(LIBFT)
+	gcc -o $(NAME) $(SRCO_P) $(SRCO_I) $(LIBFT)
 
 %.o : %.c
 	gcc $(FLAG) -c $< -o $@ $(INC)
@@ -56,7 +56,7 @@ clean :
 	$(MAKE_LIBFT) clean
 
 fclean : clean
-	rm -f $(NAME_P)
+	rm -f $(NAME)
 	$(MAKE_LIBFT) fclean
 
 re :

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:07:15 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/07/04 19:19:31 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/07/05 16:18:21 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,54 +31,68 @@ int	is_sorted(t_list **stack)
 	return (1);
 }
 
-int	get_max_bits(t_list **stack)
+void	set_group_2(t_list *stack, t_list *tmp, size_t *j)
 {
-	t_list	*head;
-	int		max;
-	int		max_bits;
 	size_t	size;
 
-	head = *stack;
-	max = head->index;
-	max_bits = 0;
-	size = ft_lstsize(*stack);
-	while (size--)
+	size = ft_lstsize(stack);
+	if (size <= 100)
 	{
-		if (head->index > max)
-			max = head->index;
-		head = head->next;
+		if ((size_t)tmp->final < (size / 7 + 1) * *j)
+			tmp->group = *j;
+		else
+			(*j)++;
 	}
-	while ((max >> max_bits) != 0)
-		max_bits++;
-	return (max_bits);
+	else
+	{
+		if ((size_t)tmp->final < (size / 17 + 1) * *j)
+			tmp->group = *j;
+		else
+			(*j)++;
+	}
 }
 
-void	radix_sorting(t_list **stack_a, t_list **stack_b)
+void	set_group(t_list *stack)
 {
-	t_list	*head_a;
-	int		i;
-	int		j;
-	int		size;
-	int		max_bits;
+	t_list	*tmp;
+	size_t	i;
+	size_t	j;
 
+	tmp = stack;
 	i = 0;
-	head_a = *stack_a;
-	size = ft_lstsize(head_a);
-	max_bits = get_max_bits(stack_a);
-	while (i < max_bits)
+	while (i++ < ft_lstsize(stack))
 	{
-		j = 0;
-		while (j++ < size)
+		tmp->group = 0;
+		tmp = tmp->next;
+	}
+	i = 0;
+	while (i++ < ft_lstsize(stack))
+	{
+		j = 1;
+		while (tmp->group == 0)
+			set_group_2(stack, tmp, &j);
+		tmp = tmp->next;
+	}
+}
+
+void	set_final(t_list *stack)
+{
+	t_list	*tmp1;
+	t_list	*tmp2;
+
+	tmp1 = stack;
+	while (tmp1->next != stack)
+	{
+		tmp2 = tmp1->next;
+		while (tmp2 != stack)
 		{
-			head_a = *stack_a;
-			if (((head_a->index >> i) & 1) == 1)
-				ra(stack_a);
+			if (tmp1->content < tmp2->content)
+				tmp2->final = tmp2->final + 1;
 			else
-				pb(stack_a, stack_b);
+				tmp1->final = tmp1->final + 1;
+			tmp2 = tmp2->next;
 		}
-		while (ft_lstsize(*stack_b) != 0)
-			pa(stack_b, stack_a);
-		i++;
+		tmp1 = tmp1->next;
 	}
 }
 
@@ -102,23 +116,10 @@ void	sort_stack(t_list **stack_a, t_list **stack_b)
 	{
 		set_final(*stack_a);
 		set_group(*stack_a);
-
-		// size_t	size;
-		// t_list	*tmp;
-		// size = ft_lstsize(*stack_a);
-		// tmp = *stack_a;
-		// while (size--)
-		// {
-		// 	printf("%d %d %d\n", tmp->content, tmp->final, tmp->index);
-		// 	tmp = tmp->next;
-		// }
-		// return ;
-
 		sort(stack_a, stack_b);
 		stack_3(stack_a);
 		sort_back(stack_a, stack_b);
 		if (is_sorted(stack_a))
 			return ;
 	}
-	//radix_sorting(stack_a, stack_b);
 }

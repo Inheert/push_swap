@@ -22,7 +22,7 @@ unsigned int	get_distance(t_list **stack, int idx)
 	buff = *stack;
 	while (size--)
 	{
-		if (buff->index == idx)
+		if (buff->final == idx)
 		{
 			first_idx_place = ft_lstsize(*stack) - size;
 			break ;
@@ -55,7 +55,7 @@ void	stack_3(t_list **stack)
 	}
 }
 
-void	stack_5(t_list **stack_a, t_list **stack_b)
+void	_stack_5(t_list **stack_a, t_list **stack_b)
 {
 	int		first_idx_place;
 	int		idx_search;
@@ -64,9 +64,9 @@ void	stack_5(t_list **stack_a, t_list **stack_b)
 	while (idx_search <= 1)
 	{
 		first_idx_place = get_distance(stack_a, idx_search);
-		while ((*stack_a)->index != idx_search)
+		while ((*stack_a)->final != idx_search)
 		{
-			if (first_idx_place > 3)
+			if (first_idx_place > 2)
 				rra(stack_a);
 			else
 				ra(stack_a);
@@ -77,4 +77,19 @@ void	stack_5(t_list **stack_a, t_list **stack_b)
 	stack_3(stack_a);
 	pa(stack_b, stack_a);
 	pa(stack_b, stack_a);
+}
+
+void	stack_5(t_list **stack_a, t_list **stack_b)
+{
+	while (ft_lstsize(*stack_a) > 3)
+	{
+		while ((*stack_a)->final != 1 && (*stack_a)->final != 2)
+			ra(stack_a);
+		pb(stack_a, stack_b);
+	}
+	stack_3(stack_a);
+	pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
+	if ((*stack_a)->content > (*stack_a)->next->content)
+		sa(stack_a);
 }

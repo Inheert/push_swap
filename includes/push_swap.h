@@ -18,9 +18,6 @@
 # include <stdlib.h>
 # include "../libft/libft.h"
 
-void	exception(t_list **stack_a, t_list **stack_b);
-t_list	*check_args(int argc, char **argv);
-
 void	sa(t_list **stack_a);
 void	sb(t_list **stack_b);
 void	ss(t_list **stack_a, t_list **stack_b);
@@ -33,14 +30,17 @@ void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
 
+void	exception(t_list **stack_a, t_list **stack_b);
+t_list	*check_args(int argc, char **argv);
 int		is_sorted(t_list **stack);
 void	empty_stack(t_list **stack);
 void	set_index(t_list **stack);
 void	stack_3(t_list **stack);
 void	stack_5(t_list **stack_a, t_list **stack_b);
 void	sort_stack(t_list **stack_a, t_list **stack_b);
-void	display_stacks(t_list **stack_a, t_list **stack_b);
-void	rotate_until(t_list **stack, int rotation);
+t_list	*find_min(t_list *stack);
+void	find_nearest(int *current, t_list **ptr, t_list **a_head);
+void	find_best_move(t_list **stack_a, t_list **stack_b, int n_group);
 
 void	set_final(t_list *stack);
 void	set_group(t_list *stack);

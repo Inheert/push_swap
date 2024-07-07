@@ -103,6 +103,8 @@ void	sort_stack(t_list **stack_a, t_list **stack_b)
 	if (is_sorted(stack_a))
 		return ;
 	size = ft_lstsize(*stack_a);
+	set_final(*stack_a);
+	set_group(*stack_a);
 	if (size == 2)
 	{
 		if ((*stack_a)->content > (*stack_a)->next->content)
@@ -114,8 +116,6 @@ void	sort_stack(t_list **stack_a, t_list **stack_b)
 		stack_5(stack_a, stack_b);
 	else
 	{
-		set_final(*stack_a);
-		set_group(*stack_a);
 		sort(stack_a, stack_b);
 		stack_3(stack_a);
 		sort_back(stack_a, stack_b);

@@ -14,10 +14,10 @@ NAME = push_swap
 
 _SRCS_P = exception.c \
 			main.c \
-			stack_sorting.c \
-			index_setter.c \
+			utils.c \
 			short_stack.c \
-			sorting.c \
+			stack_sorting.c \
+			stack_sorting2.c \
 
 _SRCS_I = sa_sb_ss.c \
 			pa_pb.c \

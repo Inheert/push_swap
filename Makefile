@@ -6,7 +6,7 @@
 #    By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/25 04:39:44 by tclaereb          #+#    #+#              #
-#    Updated: 2024/07/05 16:17:59 by tclaereb         ###   ########.fr        #
+#    Updated: 2024/07/08 16:21:24 by tclaereb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,10 +45,10 @@ $(LIBFT):
 	$(MAKE_LIBFT)
 
 $(NAME) : $(SRCO_P) $(SRCO_I) | $(LIBFT)
-	gcc -o $(NAME) $(SRCO_P) $(SRCO_I) $(LIBFT)
+	cc -o $(NAME) $(SRCO_P) $(SRCO_I) $(LIBFT)
 
 %.o : %.c
-	gcc $(FLAG) -c $< -o $@ $(INC)
+	cc $(FLAG) -c $< -o $@ $(INC)
 
 clean :
 	rm -f $(SRCO_P)
@@ -63,3 +63,5 @@ re :
 	$(MAKE_LIBFT) fclean
 	make fclean
 	make
+
+.PHONY: all clean fclean re

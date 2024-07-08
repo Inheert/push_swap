@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 06:41:52 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/07/04 17:10:28 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:08:37 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ unsigned int	get_distance(t_list **stack, int idx)
 
 	size = ft_lstsize(*stack);
 	buff = *stack;
+	first_idx_place = 0;
 	while (size--)
 	{
 		if (buff->final == idx)

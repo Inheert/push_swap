@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   stack_sorting2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 13:37:34 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/07/05 17:53:16 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:04:54 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	sort(t_list **a_head, t_list **b_head)
 
 void	sort_back(t_list **a_head, t_list **b_head)
 {
-	int	max;
+	int		max;
 	t_list	*ptr;
 
 	while (*b_head)
